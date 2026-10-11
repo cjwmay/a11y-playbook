@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A11y Playbook · 每天一条无障碍设计课 / One accessibility lesson a day</title>
+<style>
+  :root { --bg: #0e0e12; --card: #17171d; --text: #eee; --muted: #9a9aa3; --accent: #4dd08a; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", "Segoe UI", sans-serif;
+    background: var(--bg); color: var(--text);
+    margin: 0; padding: 48px 24px 80px;
+  }
+  .wrap { max-width: 1020px; margin: 0 auto; }
+  header { margin-bottom: 36px; }
+  h1 { font-size: 40px; margin: 0 0 12px; letter-spacing: -0.5px; }
+  h1 .dot { color: var(--accent); }
+  .sub { color: var(--muted); font-size: 17px; line-height: 1.8; margin: 0; }
+  .week { font-size: 20px; margin: 44px 0 16px; padding-top: 8px; border-top: 1px solid #26262e; }
+  .en { display: block; font-size: .72em; color: var(--muted); font-weight: 400; margin-top: 4px; }
+  h2 .en { font-size: 14px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+  .card {
+    background: var(--card); border: 1px solid #26262e; border-radius: 14px;
+    padding: 22px; text-decoration: none; color: inherit; display: block;
+    transition: transform .25s ease, border-color .25s ease;
+  }
+  a.card:hover { transform: translateY(-4px); border-color: var(--accent); }
+  .card .day { font-size: 12px; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; }
+  .card h2 { font-size: 18px; margin: 8px 0 8px; line-height: 1.5; }
+  .card p { color: var(--muted); font-size: 13px; line-height: 1.65; margin: 0; }
+  .card .tag {
+    display: inline-block; margin-top: 12px; font-size: 12px; color: var(--muted);
+    border: 1px solid #2e2e36; border-radius: 999px; padding: 3px 10px;
+  }
+  .card.done .tag { color: var(--accent); border-color: var(--accent); }
+  .card.soon { opacity: .55; }
+  footer { margin-top: 56px; color: var(--muted); font-size: 13px; line-height: 1.8; }
+  footer a { color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>A11y Playbook<span class="dot">.</span></h1>
+    <p class="sub">每天一条无障碍设计课，把 WCAG 翻译成设计师语言。<br>One accessibility lesson a day — WCAG translated into designer language.<br>56 天攒出一套完整 playbook，可直接写进作品集、讲给面试官。</p>
+  </header>
+    <h2 class="week">Week 1 · 看得见：颜色与对比<span class="en">Being seen: color &amp; contrast</span></h2>
+    <div class="grid">
+    <a class="card done" href="lessons/day-01-contrast-ratio/index.html">
+      <div class="day">Day 1 · 第 1 天</div>
+      <h2>文本对比度 4.5:1<span class="en">Text contrast 4.5:1</span></h2>
+      <p>WCAG 1.4.3</p>
+      <span class="tag">Done ✓ · 已完成</span>
+    </a>
+    <div class="card soon">
+      <div class="day">Day 2 · 第 2 天</div>
+      <h2>大字与非文本控件对比度 3:1<span class="en">Large text &amp; non-text contrast 3:1</span></h2>
+      <p>WCAG 1.4.3 / 1.4.11</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    <div class="card soon">
+      <div class="day">Day 3 · 第 3 天</div>
+      <h2>别只用颜色传达信息<span class="en">Don&#x27;t use color alone</span></h2>
+      <p>WCAG 1.4.1</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    <div class="card soon">
+      <div class="day">Day 4 · 第 4 天</div>
+      <h2>alt 文本怎么写<span class="en">Writing good alt text</span></h2>
+      <p>WCAG 1.1.1</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    <div class="card soon">
+      <div class="day">Day 5 · 第 5 天</div>
+      <h2>装饰图 vs 信息图：alt 何时留空<span class="en">Decorative vs informative images</span></h2>
+      <p>WCAG 1.1.1</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    <div class="card soon">
+      <div class="day">Day 6 · 第 6 天</div>
+      <h2>深色模式也要重测对比度<span class="en">Retest contrast in dark mode</span></h2>
+      <p>WCAG 1.4.3</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    <div class="card soon">
+      <div class="day">Day 7 · 第 7 天</div>
+      <h2>强制颜色模式<span class="en">Forced colors mode</span></h2>
+      <p>WCAG 1.4</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    </div>
+    <h2 class="week">Week 2 · 读得懂：结构与缩放<span class="en">Being understood: structure &amp; scaling</span></h2>
+    <div class="grid">
+    <div class="card soon">
+      <div class="day">Day 8 · 第 8 天</div>
+      <h2>placeholder 不是 label<span class="en">Placeholder is not a label</span></h2>
+      <p>WCAG 3.3.2</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    <div class="card soon">
+      <div class="day">Day 9 · 第 9 天</div>
+      <h2>标题层级不跳级<span class="en">Don&#x27;t skip heading levels</span></h2>
+      <p>WCAG 1.3.1</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    <div class="card soon">
+      <div class="day">Day 10 · 第 10 天</div>
+      <h2>Landmark 分区<span class="en">Landmark regions</span></h2>
+      <p>WCAG 1.3.1</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    <div class="card soon">
+      <div class="day">Day 11 · 第 11 天</div>
+      <h2>200% 放大不断裂<span class="en">200% zoom without breakage</span></h2>
+      <p>WCAG 1.4.4</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    <div class="card soon">
+      <div class="day">Day 12 · 第 12 天</div>
+      <h2>320px 宽不横滚<span class="en">Reflow at 320px</span></h2>
+      <p>WCAG 1.4.10</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    <div class="card soon">
+      <div class="day">Day 13 · 第 13 天</div>
+      <h2>文本间距可调<span class="en">Adjustable text spacing</span></h2>
+      <p>WCAG 1.4.12</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    <div class="card soon">
+      <div class="day">Day 14 · 第 14 天</div>
+      <h2>表格：表头要关联<span class="en">Data tables: associate headers</span></h2>
+      <p>WCAG 1.3.1</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    </div>
+    <h2 class="week">Week 3 · 键盘可达<span class="en">Keyboard access</span></h2>
+    <div class="grid">
+    <div class="card soon">
+      <div class="day">Day 15 · 第 15 天</div>
+      <h2>焦点可见：别删 outline<span class="en">Visible focus: don&#x27;t remove outline</span></h2>
+      <p>WCAG 2.4.7</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    <div class="card soon">
+      <div class="day">Day 16 · 第 16 天</div>
+      <h2>焦点指示器设计得好看<span class="en">Designing beautiful focus indicators</span></h2>
+      <p>WCAG 2.4.11</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    <div class="card soon">
+      <div class="day">Day 17 · 第 17 天</div>
+      <h2>焦点顺序 = 视觉顺序<span class="en">Focus order matches visual order</span></h2>
+      <p>WCAG 2.4.3</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    <div class="card soon">
+      <div class="day">Day 18 · 第 18 天</div>
+      <h2>键盘陷阱：能进能出<span class="en">No keyboard traps</span></h2>
+      <p>WCAG 2.1.2</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    <div class="card soon">
+      <div class="day">Day 19 · 第 19 天</div>
+      <h2>跳过导航链接<span class="en">Skip links</span></h2>
+      <p>WCAG 2.4.1</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    <div class="card soon">
+      <div class="day">Day 20 · 第 20 天</div>
+      <h2>所有功能键盘可达<span class="en">Everything keyboard reachable</span></h2>
+      <p>WCAG 2.1.1</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    <div class="card soon">
+      <div class="day">Day 21 · 第 21 天</div>
+      <h2>别劫持常用快捷键<span class="en">Don&#x27;t hijack common shortcuts</span></h2>
+      <p>WCAG 2.1</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    </div>
+    <h2 class="week">Week 4 · 手势与动效<span class="en">Gestures &amp; motion</span></h2>
+    <div class="grid">
+    <div class="card soon">
+      <div class="day">Day 22 · 第 22 天</div>
+      <h2>触摸目标 ≥24px<span class="en">Touch targets ≥ 24px</span></h2>
+      <p>WCAG 2.5.8</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    <div class="card soon">
+      <div class="day">Day 23 · 第 23 天</div>
+      <h2>三闪警告<span class="en">Three flashes or fewer</span></h2>
+      <p>WCAG 2.3.1</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    <div class="card soon">
+      <div class="day">Day 24 · 第 24 天</div>
+      <h2>prefers-reduced-motion<span class="en">Respect reduced motion</span></h2>
+      <p>WCAG 2.3.3</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    <div class="card soon">
+      <div class="day">Day 25 · 第 25 天</div>
+      <h2>悬停弹出的内容三规则<span class="en">Hover content: 3 rules</span></h2>
+      <p>WCAG 1.4.13</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    <div class="card soon">
+      <div class="day">Day 26 · 第 26 天</div>
+      <h2>拖拽要有替代操作<span class="en">Dragging needs an alternative</span></h2>
+      <p>WCAG 2.5.7</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    <div class="card soon">
+      <div class="day">Day 27 · 第 27 天</div>
+      <h2>复杂手势要有单指替代<span class="en">Single-pointer alternatives</span></h2>
+      <p>WCAG 2.5.1</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    <div class="card soon">
+      <div class="day">Day 28 · 第 28 天</div>
+      <h2>点击可撤销<span class="en">Pointer cancellation</span></h2>
+      <p>WCAG 2.5.2</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    </div>
+    <h2 class="week">Week 5 · 表单<span class="en">Forms</span></h2>
+    <div class="grid">
+    <div class="card soon">
+      <div class="day">Day 29 · 第 29 天</div>
+      <h2>错误：指出错在哪<span class="en">Errors: identify the field</span></h2>
+      <p>WCAG 3.3.1</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    <div class="card soon">
+      <div class="day">Day 30 · 第 30 天</div>
+      <h2>错误：告诉怎么改<span class="en">Errors: suggest the fix</span></h2>
+      <p>WCAG 3.3.3</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    <div class="card soon">
+      <div class="day">Day 31 · 第 31 天</div>
+      <h2>必填别只用红色星号<span class="en">Required: not just a red asterisk</span></h2>
+      <p>WCAG 3.3.2</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    <div class="card soon">
+      <div class="day">Day 32 · 第 32 天</div>
+      <h2>输入框 autocomplete<span class="en">autocomplete on inputs</span></h2>
+      <p>WCAG 1.3.5</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    <div class="card soon">
+      <div class="day">Day 33 · 第 33 天</div>
+      <h2>别用 disabled 按钮藏原因<span class="en">Don&#x27;t hide reasons behind disabled buttons</span></h2>
+      <p>WCAG 3.3</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    <div class="card soon">
+      <div class="day">Day 34 · 第 34 天</div>
+      <h2>不可逆操作先确认<span class="en">Confirm irreversible actions</span></h2>
+      <p>WCAG 3.3.4</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    <div class="card soon">
+      <div class="day">Day 35 · 第 35 天</div>
+      <h2>表单错误汇总模式<span class="en">Form error summary pattern</span></h2>
+      <p>WCAG 3.3.1</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    </div>
+    <h2 class="week">Week 6 · 导航与可理解<span class="en">Navigation &amp; understandability</span></h2>
+    <div class="grid">
+    <div class="card soon">
+      <div class="day">Day 36 · 第 36 天</div>
+      <h2>链接文本说清去哪<span class="en">Link text says where it goes</span></h2>
+      <p>WCAG 2.4.4</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    <div class="card soon">
+      <div class="day">Day 37 · 第 37 天</div>
+      <h2>页面标题唯一<span class="en">Unique page titles</span></h2>
+      <p>WCAG 2.4.2</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    <div class="card soon">
+      <div class="day">Day 38 · 第 38 天</div>
+      <h2>导航与标识全站一致<span class="en">Consistent navigation</span></h2>
+      <p>WCAG 3.2.3</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    <div class="card soon">
+      <div class="day">Day 39 · 第 39 天</div>
+      <h2>页面语言 lang<span class="en">Page language</span></h2>
+      <p>WCAG 3.1.1</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    <div class="card soon">
+      <div class="day">Day 40 · 第 40 天</div>
+      <h2>超时前先问<span class="en">Warn before timeouts</span></h2>
+      <p>WCAG 2.2.1</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    <div class="card soon">
+      <div class="day">Day 41 · 第 41 天</div>
+      <h2>自动播放要有暂停<span class="en">Autoplay needs a pause control</span></h2>
+      <p>WCAG 2.2.2</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    <div class="card soon">
+      <div class="day">Day 42 · 第 42 天</div>
+      <h2>面包屑与当前位置<span class="en">Breadcrumbs &amp; current location</span></h2>
+      <p>WCAG 2.4.8</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    </div>
+    <h2 class="week">Week 7 · ARIA<span class="en">ARIA</span></h2>
+    <div class="grid">
+    <div class="card soon">
+      <div class="day">Day 43 · 第 43 天</div>
+      <h2>ARIA 第一规则<span class="en">First rule of ARIA</span></h2>
+      <p>WAI-ARIA</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    <div class="card soon">
+      <div class="day">Day 44 · 第 44 天</div>
+      <h2>按钮 vs 链接：用对原生元素<span class="en">Button vs link</span></h2>
+      <p>WCAG 4.1.2</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    <div class="card soon">
+      <div class="day">Day 45 · 第 45 天</div>
+      <h2>自定义控件：name/role/value<span class="en">Custom controls: name, role, value</span></h2>
+      <p>WCAG 4.1.2</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    <div class="card soon">
+      <div class="day">Day 46 · 第 46 天</div>
+      <h2>aria-label vs aria-labelledby<span class="en">aria-label vs aria-labelledby</span></h2>
+      <p>WAI-ARIA</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    <div class="card soon">
+      <div class="day">Day 47 · 第 47 天</div>
+      <h2>aria-hidden vs display:none<span class="en">aria-hidden vs display:none</span></h2>
+      <p>WAI-ARIA</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    <div class="card soon">
+      <div class="day">Day 48 · 第 48 天</div>
+      <h2>弹窗：焦点陷阱 + ESC + 焦点返回<span class="en">Dialogs: focus trap, ESC, focus return</span></h2>
+      <p>WCAG 2.1.2</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    <div class="card soon">
+      <div class="day">Day 49 · 第 49 天</div>
+      <h2>Live region 报状态<span class="en">Live regions for status updates</span></h2>
+      <p>WCAG 4.1.3</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    </div>
+    <h2 class="week">Week 8 · 实战收官<span class="en">Putting it into practice</span></h2>
+    <div class="grid">
+    <div class="card soon">
+      <div class="day">Day 50 · 第 50 天</div>
+      <h2>视频字幕与转录<span class="en">Captions &amp; transcripts</span></h2>
+      <p>WCAG 1.2.2</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    <div class="card soon">
+      <div class="day">Day 51 · 第 51 天</div>
+      <h2>轮播图三件套<span class="en">Carousels: pause, keyboard, no autoplay</span></h2>
+      <p>WCAG 2.2.2</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    <div class="card soon">
+      <div class="day">Day 52 · 第 52 天</div>
+      <h2>Emoji 读屏怎么读<span class="en">How screen readers read emoji</span></h2>
+      <p>WCAG 1.1.1</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    <div class="card soon">
+      <div class="day">Day 53 · 第 53 天</div>
+      <h2>设计师的 a11y 评审清单<span class="en">A designer&#x27;s a11y review checklist</span></h2>
+      <p>WCAG 2.2 AA</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    <div class="card soon">
+      <div class="day">Day 54 · 第 54 天</div>
+      <h2>给开发写 a11y 标注<span class="en">Writing a11y annotations for engineers</span></h2>
+      <p>—</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    <div class="card soon">
+      <div class="day">Day 55 · 第 55 天</div>
+      <h2>15 分钟键盘走查<span class="en">15-minute keyboard walkthrough</span></h2>
+      <p>WCAG 2.1</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    <div class="card soon">
+      <div class="day">Day 56 · 第 56 天</div>
+      <h2>作品集里怎么写 a11y 故事<span class="en">Telling a11y stories in your portfolio</span></h2>
+      <p>—</p>
+      <span class="tag">Coming soon · 未开始</span>
+    </div>
+    </div>
+  <footer>
+    <p>课程同步在 side chat 每日推送（中文讲解）。Lessons are also delivered daily in chat.<br>
+    打开方式 / Open with: <code>stackblitz.com/github/cjwmay/a11y-playbook</code>（GitHub 每次 push 后自动同步）。</p>
+  </footer>
+</div>
+</body>
+</html>
