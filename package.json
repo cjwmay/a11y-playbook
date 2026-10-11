@@ -1,0 +1,1 @@
+{"description":"One accessibility design lesson a day, in Chinese and English. / 每天一条无障碍设计课，中英双语。","devDependencies":{"servor":"^4.0.2"},"name":"a11y-playbook","private":true,"scripts":{"dev":"servor --reload"},"version":"1.0.0"}
