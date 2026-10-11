@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 1 · 对比度 4.5:1 / Contrast 4.5:1 — A11y Playbook</title>
+<style>
+  :root { --ink: #1a1a1a; --muted: #595959; --bg: #ffffff; --card: #f6f6f8; --line: #e4e4e8; --accent: #0d6b1f; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", "Segoe UI", sans-serif;
+    background: var(--bg); color: var(--ink);
+    margin: 0; padding: 40px 20px 80px; line-height: 1.7;
+  }
+  .wrap { max-width: 780px; margin: 0 auto; }
+  .back { font-size: 14px; margin-bottom: 24px; display: inline-block; color: var(--muted); }
+  h1 { font-size: 30px; margin: 0 0 6px; line-height: 1.4; }
+  h1 .en { display: block; font-size: 20px; color: var(--muted); font-weight: 400; }
+  .kicker { color: var(--muted); font-size: 14px; margin-bottom: 28px; }
+  .kicker code { background: var(--card); padding: 2px 8px; border-radius: 6px; font-size: 13px; }
+  section { margin-bottom: 36px; }
+  h2 { font-size: 18px; margin: 0 0 12px; }
+  h2 .en { display: block; font-size: 13px; color: var(--muted); font-weight: 400; }
+  .rule {
+    background: #fff8e6; border-left: 4px solid #e8a100;
+    padding: 14px 18px; border-radius: 0 10px 10px 0; font-size: 16px; margin-bottom: 12px;
+  }
+  .rule.en { background: #f6f6f8; border-left-color: #b9b9c4; font-size: 15px; }
+  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 560px) { .cards { grid-template-columns: 1fr; } }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 18px; }
+  .card h3 { margin: 0 0 8px; font-size: 15px; }
+  .card h3 .en { display: block; font-size: 12px; color: var(--muted); font-weight: 400; }
+  .demo-text { font-size: 15px; margin: 10px 0; }
+  .badge {
+    display: inline-block; font-size: 12px; font-weight: 700;
+    padding: 3px 10px; border-radius: 999px; margin: 2px 4px 2px 0;
+  }
+  .pass { background: #dff5e1; color: #0d6b1f; }
+  .fail { background: #ffe0e0; color: #b00020; }
+  .ratio { font-size: 22px; font-weight: 800; font-variant-numeric: tabular-nums; }
+  .lab { background: #fff; border: 2px dashed #b9b9c4; border-radius: 14px; padding: 22px; }
+  .preview {
+    background: #fff; border: 1px solid var(--line); border-radius: 10px;
+    padding: 26px; margin: 14px 0; text-align: center;
+  }
+  .preview p { margin: 6px 0; }
+  input[type=range] { width: 100%; margin: 10px 0; }
+  .row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .hex { font-family: ui-monospace, monospace; font-size: 15px; font-weight: 700; }
+  .swatches { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+  .sw { width: 44px; height: 44px; border-radius: 10px; cursor: pointer; border: 2px solid transparent; }
+  .sw.active { border-color: var(--ink); }
+  ol.steps, ul.steps { padding-left: 20px; margin: 8px 0; }
+  ol.steps li, ul.steps li { margin-bottom: 8px; }
+  .fix {
+    background: #1e1e24; color: #e8e8ec; border-radius: 12px;
+    padding: 16px 20px; font-family: ui-monospace, monospace; font-size: 14px;
+    overflow-x: auto; margin-bottom: 12px;
+  }
+  .fix .del { color: #ff8a8a; text-decoration: line-through; }
+  .fix .add { color: #8aff9e; }
+  .fix .c { color: #8a8a96; }
+  .tip { background: #eef4ff; border-radius: 10px; padding: 12px 16px; font-size: 14px; margin-top: 12px; }
+  .tip.en { background: #f6f6f8; }
+  .lang-label {
+    display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 1px;
+    background: var(--ink); color: #fff; border-radius: 6px; padding: 2px 8px; margin-bottom: 8px;
+  }
+  .lang-label.en-label { background: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="../../index.html">← A11y Playbook 首页 / Home</a>
+  <h1>Day 1 · 对比度 4.5:1<span class="en">Contrast 4.5:1 — don't let gray body text get too light</span></h1>
+  <div class="kicker">WCAG <code>1.4.3 Contrast (Minimum)</code> · AA</div>
+
+  <section>
+    <h2>📏 规则一句话<span class="en">The rule in one sentence</span></h2>
+    <span class="lang-label">中文</span>
+    <div class="rule">正文小字和背景的对比度至少 <strong>4.5:1</strong>，大字（18pt 以上 / 14pt 加粗以上）至少 <strong>3:1</strong> —— 灰色越淡，低视力用户和强光下的手机用户越读不了。</div>
+    <span class="lang-label en-label">ENGLISH</span>
+    <div class="rule en">Body text needs a contrast ratio of at least <strong>4.5:1</strong> against its background; large text (18pt+ / 14pt bold+) needs at least <strong>3:1</strong>. The lighter your gray, the more low-vision users and phone users in sunlight can't read it.</div>
+  </section>
+
+  <section>
+    <h2>❌ ✅ 正反例子<span class="en">Bad vs good examples</span></h2>
+    <div class="cards">
+      <div class="card">
+        <h3>❌ 反例：#999 的"次要信息"<span class="en">Bad: #999 "secondary" text</span></h3>
+        <p class="demo-text" style="color:#999999">预计送达时间：3–5 个工作日</p>
+        <div><span class="ratio">2.85:1</span></div>
+        <div><span class="badge fail">AA 小字 FAIL</span><span class="badge fail">AA 大字 FAIL</span></div>
+        <p style="font-size:13px;color:#595959">设计师常拿淡灰表达"次要"，但 2.85:1 在阳光下几乎隐形。<br><span style="color:#777">Designers love light gray for "secondary" — at 2.85:1 it's nearly invisible in sunlight.</span></p>
+      </div>
+      <div class="card">
+        <h3>✅ 正例：#595959，深但不黑<span class="en">Good: #595959, dark but not black</span></h3>
+        <p class="demo-text" style="color:#595959;font-weight:500">预计送达时间：3–5 个工作日</p>
+        <div><span class="ratio">7.00:1</span></div>
+        <div><span class="badge pass">AA 小字 PASS</span><span class="badge pass">AAA PASS</span></div>
+        <p style="font-size:13px;color:#595959">层级用<strong>字重</strong>（Regular→Medium）区分，不用"更淡"。<br><span style="color:#777">Express hierarchy with <strong>weight</strong>, not lightness.</span></p>
+      </div>
+    </div>
+    <div class="tip">💡 临界值色号：<strong>#767676</strong> 在白色上正好 4.54:1 —— 比它淡的灰，小字一律不过线。记住它，当 Figma 里的"最淡可用灰"。<br><span style="color:#555">Threshold swatch: <strong>#767676</strong> is exactly 4.54:1 on white — any lighter gray fails for body text. Memorize it as your "lightest usable gray".</span></div>
+  </section>
+
+  <section>
+    <h2>🧪 交互实验室<span class="en">Interactive lab — drag the slider, watch the ratio</span></h2>
+    <div class="lab">
+      <div class="preview">
+        <p id="pvSmall" style="font-size:15px">这段小字能看清吗？拖动滑杆试试<br><span style="font-size:12px">Can you read this small text? Drag the slider.</span></p>
+        <p id="pvLarge" style="font-size:24px;font-weight:700">大字要求更宽松 / Large text is more forgiving</p>
+      </div>
+      <div class="row">
+        <input type="range" id="gray" min="0" max="255" value="89" style="flex:1" aria-label="灰度 / gray value">
+        <span class="hex" id="hexVal">#595959</span>
+      </div>
+      <div class="row" style="margin-top:8px">
+        <span class="ratio" id="ratioVal">7.00 : 1</span>
+        <span class="badge pass" id="bAA">AA 小字 4.5:1 PASS</span>
+        <span class="badge pass" id="bAALarge">AA 大字 3:1 PASS</span>
+        <span class="badge pass" id="bAAA">AAA 7:1 PASS</span>
+      </div>
+      <div class="swatches" id="swatches"></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>🔍 怎么测<span class="en">How to test</span></h2>
+    <span class="lang-label">中文</span>
+    <ol class="steps">
+      <li><strong>Chrome DevTools</strong>：选中文字 → Styles 面板点颜色方块 → 取色器直接显示 contrast ratio 和 AA/AAA 徽章。</li>
+      <li><strong>Figma</strong>：装 Stark 或 A11y Annotation 插件，一键扫全画面的对比度。</li>
+      <li><strong>在线</strong>：WebAIM Contrast Checker，输入两个色号出比值。</li>
+    </ol>
+    <span class="lang-label en-label">ENGLISH</span>
+    <ol class="steps">
+      <li><strong>Chrome DevTools</strong>: select the text → click the color swatch in the Styles panel → the picker shows the ratio and AA/AAA badges.</li>
+      <li><strong>Figma</strong>: Stark or A11y Annotation plugin scans the whole frame.</li>
+      <li><strong>Online</strong>: WebAIM Contrast Checker — paste two hex values.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>🛠️ 一行修复<span class="en">The one-line fix</span></h2>
+    <div class="fix"><span class="c">/* 次要文字：别再用 #999 / secondary text: stop using #999 */</span><br><span class="del">color: #999999;</span>  <span class="add">color: #595959;</span> <span class="c">/* 2.85:1 → 7.0:1 */</span><br><span class="add">font-weight: 500;</span> <span class="c">/* 层级用字重，不用更淡 / hierarchy via weight, not lightness */</span></div>
+    <div class="tip">🎙️ 面试怎么讲："我在 DS 里把 secondary text 的 token 从 #999 换成 #595959，对比度从 2.85 拉到 7.0，同时用字重而不是颜色深浅表达层级 —— 这是 WCAG 1.4.3 的 AA 要求。"<br><span style="color:#555">🎙️ Interview line: "I changed our secondary-text token from #999 to #595959, taking contrast from 2.85 to 7.0, and expressed hierarchy with weight instead of lightness — that's WCAG 1.4.3 AA."</span></div>
+  </section>
+</div>
+
+<script>
+  function lum(hex) {
+    const c = hex.replace('#', '');
+    const rgb = [0, 2, 4].map(i => {
+      const v = parseInt(c.substr(i, 2), 16) / 255;
+      return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
+    });
+    return 0.2126 * rgb[0] + 0.7152 * rgb[1] + 0.0722 * rgb[2];
+  }
+  function ratio(fg, bg) {
+    const a = lum(fg), b = lum(bg);
+    return (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05);
+  }
+  const toHex = v => '#' + [v, v, v].map(n => n.toString(16).padStart(2, '0')).join('');
+  const slider = document.getElementById('gray');
+  const presets = [
+    { hex: '#999999', label: '反例 Bad #999' },
+    { hex: '#9E9E9E', label: '#9E9E9E' },
+    { hex: '#767676', label: '临界 Threshold #767676' },
+    { hex: '#595959', label: '正例 Good #595959' },
+    { hex: '#1a1a1a', label: '#1a1a1a' }
+  ];
+  const swBox = document.getElementById('swatches');
+  presets.forEach(p => {
+    const d = document.createElement('div');
+    d.className = 'sw'; d.style.background = p.hex; d.title = p.label;
+    d.setAttribute('role', 'button'); d.setAttribute('tabindex', '0');
+    d.setAttribute('aria-label', p.label);
+    const go = () => {
+      slider.value = parseInt(p.hex.substr(1, 2), 16); update(+slider.value);
+      document.querySelectorAll('.sw').forEach(s => s.classList.remove('active'));
+      d.classList.add('active');
+    };
+    d.onclick = go;
+    d.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } };
+    swBox.appendChild(d);
+  });
+  function setBadge(el, ok, label) {
+    el.textContent = label + (ok ? ' PASS' : ' FAIL');
+    el.className = 'badge ' + (ok ? 'pass' : 'fail');
+  }
+  function update(v) {
+    const hex = toHex(v);
+    document.getElementById('hexVal').textContent = hex.toUpperCase();
+    document.getElementById('pvSmall').style.color = hex;
+    document.getElementById('pvLarge').style.color = hex;
+    const r = ratio(hex, '#ffffff');
+    document.getElementById('ratioVal').textContent = r.toFixed(2) + ' : 1';
+    setBadge(document.getElementById('bAA'), r >= 4.5, 'AA 小字 small 4.5:1');
+    setBadge(document.getElementById('bAALarge'), r >= 3, 'AA 大字 large 3:1');
+    setBadge(document.getElementById('bAAA'), r >= 7, 'AAA 7:1');
+  }
+  slider.addEventListener('input', e => {
+    document.querySelectorAll('.sw').forEach(s => s.classList.remove('active'));
+    update(+e.target.value);
+  });
+  update(89);
+</script>
+</body>
+</html>
